@@ -2,7 +2,16 @@ document['\u0061\u0064\u0064\u0045\u0076\u0065\u006E\u0074\u004C\u0069\u0073\u00
 document.addEventListener('DOMContentLoaded', function () {
   const music = document.getElementById('bgMusic');
   music.volume = 0.5; // atur volume 0-1
-
+document.getElementById('musicToggle').addEventListener('click', function () {
+  const music = document.getElementById('bgMusic');
+  if (music.paused) {
+    music.play();
+    this.textContent = '🔊';
+  } else {
+    music.pause();
+    this.textContent = '🔇';
+  }
+});
   // Coba autoplay
   const playPromise = music.play();
 
@@ -20,4 +29,5 @@ document.addEventListener('DOMContentLoaded', function () {
       document.addEventListener('keydown', startMusic);
     });
   }
+
 });
